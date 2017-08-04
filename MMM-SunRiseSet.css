@@ -10,9 +10,9 @@
 }
 
 .MMM-SunRiseSet .photo { 
-/*  display: none;              uncomment if you don't want animated image */           
-  width: 100%;                /* adjust size of moon picture */
-  margin-left: 0px;          /* Precisely align moon picture with these */
+/*  display: none;              uncomment if you don't want chart */           
+  width: 100%;                /* adjust size of chart */
+  margin-left: 0px;          /* Precisely align chart with these */
   margin-right: 0px;
   margin-top: 10px;
   margin-bottom: -15px;
