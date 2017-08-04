@@ -1,0 +1,70 @@
+/* Copy and paste any or all of these css entries into your custom.css file inside your
+ * css folder. The functions are annotated to make things as easy as possible for you.
+ * Use any colors you want! Go to - "http://htmlcolorcodes.com/color-picker/"
+ * Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
+ */
+
+.MMM-SunRiseSet .header {
+  color: white;               /* Header color. Default is white. */
+  text-align: left;           /* Algin header text  */
+}
+
+.MMM-SunRiseSet .photo { 
+/*  display: none;              uncomment if you don't want animated image */           
+  width: 100%;                /* adjust size of moon picture */
+  margin-left: 0px;          /* Precisely align moon picture with these */
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+  float: center;
+}
+
+.MMM-SunRiseSet .sunrise {
+  color: white;               /* sunrise color. Default is white. */
+  text-align: left;           /* Align sunrise text  */
+}
+
+.MMM-SunRiseSet .sunset {
+  color: white;               /* sunset color. Default is white. */
+  text-align: left;           /* Align sunset text  */
+}
+
+.MMM-SunRiseSet .solar_noon {
+  color: white;               /* solar_noon color. Default is white. */
+  text-align: left;            /* Align solar_noon text  */
+}
+
+.MMM-SunRiseSet .day_length {
+  color: white;               /* day_length color. Default is white. */
+  text-align: left;            /* Align day_length text  */
+}
+
+.MMM-SunRiseSet .civil_twilight_begin {
+  color: white;               /* civil_twilight_begin color. Default is white. */
+  text-align: left;            /* Align civil_twilight_begin text  */
+}
+
+.MMM-SunRiseSet .civil_twilight_end {
+  color: white;               /* civil_twilight_end color. Default is white. */
+  text-align: left;            /* Align civil_twilight_end text  */
+}
+
+.MMM-SunRiseSet .nautical_twilight_begin {
+  color: white;               /* nautical_twilight_begin color. Default is white. */
+  text-align: left;            /* Align nautical_twilight_begin text  */
+}
+
+.MMM-SunRiseSet .nautical_twilight_end {
+  color: white;               /* nautical_twilight_end color. Default is white. */
+  text-align: left;            /* Align nautical_twilight_end text  */
+}
+
+.MMM-SunRiseSet .astronomical_twilight_begin {
+  color: white;               /* astronomical_twilight_begin color. Default is white. */
+  text-align: left;            /* Align astronomical_twilight_begin text  */
+}
+
+.MMM-SunRiseSet .astronomical_twilight_end {
+  color: white;               /* astronomical_twilight_end color. Default is white. */
+  text-align: left;            /* Align astronomical_twilight_end text  */
+}
