@@ -42,6 +42,7 @@ Annotated .css file included for aligning and coloring text and header.
 			image: "world",      // world or static 
 			useHeader: false,    // true if you want a header
 			header: "Header",    // useHeader must be true
+			updateInterval: 20 * 1000, //  seconds
 			maxWidth: "260px",
         }
     },
