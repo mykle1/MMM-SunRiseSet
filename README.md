@@ -39,6 +39,7 @@ Annotated .css file included for aligning and coloring text and header.
 		config: {
 			lat: "40.123456",    // Your latitude
 			lng: "-74.123456",   // Your longitude
+			image: "world",      // world or static 
 			useHeader: false,    // true if you want a header
 			header: "Header",    // useHeader must be true
 			maxWidth: "260px",
