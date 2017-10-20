@@ -10,13 +10,14 @@ Module.register("MMM-SunRiseSet", {
     defaults: {
         lat: "36.7201600",                        // latitude
         lng: "-4.4203400",                        // longitude
+		image: "static",                          // world or static
         useHeader: false,                         // true if you want a header      
         header: "On to the heart of the sunrise", // Any text you want. useHeader must be true
         maxWidth: "300px",
         animationSpeed: 3000,
         initialLoadDelay: 4250,
         retryDelay: 2500,
-        updateInterval: 60 * 60 * 1000,           // 1 hour
+        updateInterval: 5 * 60 * 1000,           // 5 minutes
 
     },
 
@@ -145,10 +146,15 @@ Module.register("MMM-SunRiseSet", {
         var pic = document.createElement("div");
         var img = document.createElement("img");
         img.classList.add("photo");
-        img.src = "modules/MMM-SunRiseSet/pix/phases.png";
-        pic.appendChild(img);
-        wrapper.appendChild(pic);
-
+		if (this.config.image != "world"){
+			img.src = "modules/MMM-SunRiseSet/pix/phases.png";
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+		} else {
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today";
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+		}
         return wrapper;
     },
 
