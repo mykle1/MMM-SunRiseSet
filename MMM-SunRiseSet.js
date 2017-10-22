@@ -10,9 +10,9 @@ Module.register("MMM-SunRiseSet", {
     defaults: {
         lat: "36.7201600",                        // latitude
         lng: "-4.4203400",                        // longitude
-		image: "static",                          // world or static
+	image: "world",                           // world or static
         useHeader: false,                         // true if you want a header      
-        header: "On to the heart of the sunrise", // Any text you want. useHeader must be true
+        header: "",                               // Any text you want. useHeader must be true
         maxWidth: "300px",
         animationSpeed: 3000,
         initialLoadDelay: 4250,
