@@ -37,13 +37,12 @@ Annotated .css file included for aligning and coloring text and header.
 		module: "MMM-SunRiseSet",
 		position: "bottom_left",
 		config: {
-			lat: "40.123456",    // Your latitude
-			lng: "-74.123456",   // Your longitude
-			image: "world",      // world or static 
-			useHeader: false,    // true if you want a header
-			header: "Header",    // useHeader must be true
-			updateInterval: 20 * 1000, //  seconds
-			maxWidth: "260px",
+			lat: "40.123456",          // Your latitude
+			lng: "-74.123456",         // Your longitude
+			image: "world",            // world (animated) or static (graph)
+			useHeader: false,          // true if you want a header
+			header: "Header",          // useHeader must be true
+			maxWidth: "260px",         // adjust to your liking
         }
     },
 	
