@@ -16,7 +16,7 @@ More information than you ever wanted to know about the rising and setting of th
 
 * MMM-Lunartic in top_left region
 
-![](pix/1.JPG)
+![](pix/1.JPG), ![](pix/2.JPG)
 
 * MMM-SunRiseSet in bottom_left region
 
