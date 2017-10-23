@@ -12,14 +12,19 @@ More information than you ever wanted to know about the rising and setting of th
 * Nautical Twilight: The geometric center of the Sun is between 6 and 12 degrees below the horizon.
 * Astronomical Twilight: The geometric center of the Sun is between 12 and 18 degrees below the horizon.
 
-## Examples
+## Examples with static graph
 
 * MMM-Lunartic in top_left region
+
+![](pix/1.JPG)
+
 * MMM-SunRiseSet in bottom_left region
 
-![](pix/1.JPG), ![](pix/2.JPG)
+## Example animation instead of static graph
 
-* MMM-SunRiseSet in bottom_left region
+![](pix/1.gif)
+
+* Obviously, the shadow will move much more slowly
 
 Annotated .css file included for aligning and coloring text and header.
 
@@ -37,14 +42,15 @@ Annotated .css file included for aligning and coloring text and header.
 		module: "MMM-SunRiseSet",
 		position: "bottom_left",
 		config: {
-			lat: "40.123456",          // Your latitude
-			lng: "-74.123456",         // Your longitude
-			image: "world",            // world (animated) or static (graph)
-			useHeader: false,          // true if you want a header
-			header: "Header",          // useHeader must be true
-			maxWidth: "260px",         // adjust to your liking
+			lat: "40.574783",    // Your latitude (for the data)
+			lng: "-74.112450",   // Your longitude (for the data)
+			image: "world",      // world (animation) or static (graph)
+			useHeader: false,    // true if you want a header
+			header: "Header",    // useHeader must be true
+			maxWidth: "300px",
         }
     },
 	
 
 ## Thanks go to SpaceCowboysDude for UTC and moment advice
+## Thanks also to Sean and Strawberry for updateDOM guidance
