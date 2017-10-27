@@ -10,7 +10,7 @@
 
 .MMM-SunRiseSet .img { 
 /*  display: none;              uncomment if you don't want animated image */           
-  width: 95%;                /* adjust size of moon picture */  
+  width: 99%;                /* adjust size of moon picture */  
   margin-left: 0px;          /* Precisely align moon picture with these */
   margin-right: 0px;
   margin-top: 10px;

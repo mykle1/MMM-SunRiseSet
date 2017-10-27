@@ -10,7 +10,8 @@ Module.register("MMM-SunRiseSet", {
     defaults: {
         lat: "36.7201600",                        // latitude
         lng: "-4.4203400",                        // longitude
-	image: "world",                          // world or static (for graph)
+		image: "world",                           // world or static (for graph)
+		mapOnly: "no",                            // no = all data, yes = only animated world map
         useHeader: false,                         // true if you want a header      
         header: "On to the heart of the sunrise", // Any text you want. useHeader must be true
         maxWidth: "300px",
@@ -58,6 +59,10 @@ Module.register("MMM-SunRiseSet", {
             header.innerHTML = this.config.header;
             wrapper.appendChild(header);
         }
+		
+		///////////// First - IF you want all the data and the image ///////////////////
+		
+		if (this.config.mapOnly != "yes") {
 
         var SunRiseSet = this.SunRiseSet;
         var lat = this.config.lat; // latitude
@@ -157,6 +162,25 @@ Module.register("MMM-SunRiseSet", {
 			pic.appendChild(img);
 			wrapper.appendChild(pic);
 		}
+		
+		 ////////////////// ELSE - Only the world map image //////////////
+		
+		} else {
+			
+		var top = document.createElement("div");
+        top.classList.add("list-row");
+		
+		var pic = document.createElement("div");
+        var img = document.createElement("img");		
+        img.classList.add("img");
+		var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
+		img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; // 
+		pic.appendChild(img);
+		wrapper.appendChild(pic);
+		
+		} // closes else
+		
+		
         return wrapper;
     },
 

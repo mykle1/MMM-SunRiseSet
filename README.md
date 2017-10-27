@@ -16,13 +16,15 @@ More information than you ever wanted to know about the rising and setting of th
 
 * MMM-Lunartic in top_left region
 
-![](pix/1.JPG), ![](pix/2.JPG)
+![](pix/1.JPG)
 
 * MMM-SunRiseSet in bottom_left region
 
 ## Example animation instead of static graph
 
-![](pix/1.gif)
+![](pix/1.gif), ![](pix/11.JPG)
+
+* Config option to just show animated world image without the data
 
 * Obviously, the shadow will move much more slowly
 
@@ -45,6 +47,7 @@ Annotated .css file included for aligning and coloring text and header.
 			lat: "40.574783",    // Your latitude (for the data)
 			lng: "-74.112450",   // Your longitude (for the data)
 			image: "world",      // world (animation) or static (graph)
+			mapOnly: "no",       // no = all data, yes = only animated world map
 			useHeader: false,    // true if you want a header
 			header: "Header",    // useHeader must be true
 			maxWidth: "300px",
