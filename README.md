@@ -23,6 +23,7 @@ More information than you ever wanted to know about the rising and setting of th
 ## Example animation instead of static graph
 
 ![](pix/1.gif), ![](pix/11.JPG)
+* Obviously, day or night will move much more slowly
 
 ## Or animated earth image
 * Updates to show daylight approaching or night approaching
@@ -30,8 +31,6 @@ More information than you ever wanted to know about the rising and setting of th
 ![](pix/cc.JPG)
 
 * Config option to show just animated world or map without the data
-
-* Obviously, day or night will move much more slowly
 
 Annotated .css file included for aligning and coloring text. 
 css file also used to display as little or as much data as you like.
