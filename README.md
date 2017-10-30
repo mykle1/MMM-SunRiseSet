@@ -33,7 +33,7 @@ More information than you ever wanted to know about the rising and setting of th
 
 * Obviously, day or night will move much more slowly
 
-Annotated .css file included for aligning and coloring text and header.
+Annotated .css file included for aligning and coloring text. 
 css file also used to display as little or as much data as you like.
 
 ## Installation
