@@ -24,11 +24,17 @@ More information than you ever wanted to know about the rising and setting of th
 
 ![](pix/1.gif), ![](pix/11.JPG)
 
-* Config option to just show animated world image without the data
+## Or animated earth image
+* Updates to show daylight approaching or night approaching
 
-* Obviously, the shadow will move much more slowly
+![](pix/cc.JPG)
+
+* Config option to show just animated world or map without the data
+
+* Obviously, day or night will move much more slowly
 
 Annotated .css file included for aligning and coloring text and header.
+css file also used to display as little or as much data as you like.
 
 ## Installation
 
@@ -44,12 +50,13 @@ Annotated .css file included for aligning and coloring text and header.
 		module: "MMM-SunRiseSet",
 		position: "bottom_left",
 		config: {
-			lat: "40.574783",    // Your latitude (for the data)
-			lng: "-74.112450",   // Your longitude (for the data)
-			image: "world",      // world (animation) or static (graph)
-			mapOnly: "no",       // no = all data, yes = only animated world map
-			useHeader: false,    // true if you want a header
-			header: "Header",    // useHeader must be true
+			lat: "40.574783",      // Your latitude (for the data)
+			lng: "-74.112450",     // Your longitude (for the data)
+			image: "world",        // "world" (animation), "map" (animation), "static" (graph)
+			imageOnly: "no",       // no = all data, yes = only animated world or map
+			dayOrNight: "night",   // "night" approaching, "day" approaching (imageOnly: must be "yes", image: must be "world") 
+			useHeader: false,      // true if you want a header
+			header: "Header",      // useHeader must be true
 			maxWidth: "300px",
         }
     },

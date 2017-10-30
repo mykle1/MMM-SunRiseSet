@@ -10,13 +10,27 @@
 
 .MMM-SunRiseSet .img { 
 /*  display: none;              uncomment if you don't want animated image */           
-  width: 99%;                /* adjust size of moon picture */  
-  margin-left: 0px;          /* Precisely align moon picture with these */
-  margin-right: 0px;
-  margin-top: 10px;
-  margin-bottom: 0px;
+  width: 79%;                /* adjust size of image. Retains aspet ratio */  
+  margin-left: 0px;          /* Precisely align image with these */
+  margin-right: 0px;         /* world = Adjust for different regions and images */
+  margin-top: -45px;         /* world = -45 Adjust for different regions and images */
+  margin-bottom: -55px;      /* world = -55 Adjust for different regions and images */
   float: center;
 }
+
+.MMM-SunRiseSet .photo { 
+/*  display: none;              uncomment if you don't want animated image */           
+  width: 79%;                 /* adjust size of image. Retains aspet ratio */  
+  margin-left: 0px;           /* Precisely align image with these */
+  margin-right: -200px;       /* Adjust for different regions and images */
+  margin-top: -190px;         /* Adjust for different regions and images */
+  margin-bottom: 0px;         /* Adjust for different regions and images */
+  float: center;
+}
+
+
+
+
 
 .MMM-SunRiseSet .sunrise {
   color: white;               /* sunrise color. Default is white. */
@@ -36,24 +50,30 @@
 
 .MMM-SunRiseSet .civil_twilight_begin {
   color: white;               /* civil_twilight_begin color. Default is white. */
+  display: none;
 }
 
 .MMM-SunRiseSet .civil_twilight_end {
   color: white;               /* civil_twilight_end color. Default is white. */
+  display: none;
 }
 
 .MMM-SunRiseSet .nautical_twilight_begin {
   color: white;               /* nautical_twilight_begin color. Default is white. */
+  display: none;
 }
 
 .MMM-SunRiseSet .nautical_twilight_end {
   color: white;               /* nautical_twilight_end color. Default is white. */
+  display: none;
 }
 
 .MMM-SunRiseSet .astronomical_twilight_begin {
   color: white;               /* astronomical_twilight_begin color. Default is white. */
+  display: none;
 }
 
 .MMM-SunRiseSet .astronomical_twilight_end {
   color: white;               /* astronomical_twilight_end color. Default is white. */
+  display: none;
 }

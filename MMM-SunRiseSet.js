@@ -10,8 +10,9 @@ Module.register("MMM-SunRiseSet", {
     defaults: {
         lat: "36.7201600",                        // latitude
         lng: "-4.4203400",                        // longitude
-		image: "world",                           // world or static (for graph)
-		mapOnly: "no",                            // no = all data, yes = only animated world map
+		image: "world",                           // world, map or static (for graph)
+		imageOnly: "no",                          // no = all data, yes = only animated image choice
+		dayOrNight: "night", // "night" approaching, "day" approaching (imageOnly must be "yes")
         useHeader: false,                         // true if you want a header      
         header: "On to the heart of the sunrise", // Any text you want. useHeader must be true
         maxWidth: "300px",
@@ -62,7 +63,7 @@ Module.register("MMM-SunRiseSet", {
 		
 		///////////// First - IF you want all the data and the image ///////////////////
 		
-		if (this.config.mapOnly != "yes") {
+		if (this.config.imageOnly != "yes") {
 
         var SunRiseSet = this.SunRiseSet;
         var lat = this.config.lat; // latitude
@@ -71,6 +72,29 @@ Module.register("MMM-SunRiseSet", {
 
         var top = document.createElement("div");
         top.classList.add("list-row");
+		
+		
+		 // choice of image // timestamp in url forces DOM to update @Sean & @ Strawberry
+        var pic = document.createElement("div");
+        var img = document.createElement("img");		
+        img.classList.add("img");
+		if (this.config.image == "static"){
+			img.src = "modules/MMM-SunRiseSet/pix/phases.png";
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+		} else if (this.config.image == "map") {			
+			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; // 
+			console.log(img.src);
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+		} else {
+			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=rise&seed=" + getTimeStamp; // 
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+			
+		}
 
 
         // sunrise set to local time using moment
@@ -147,21 +171,7 @@ Module.register("MMM-SunRiseSet", {
         wrapper.appendChild(astronomical_twilight_end);
 
 
-        // choice of image // timestamp in url forces DOM to update @Sean & @ Strawberry
-        var pic = document.createElement("div");
-        var img = document.createElement("img");		
-        img.classList.add("img");
-		if (this.config.image != "world"){
-			img.src = "modules/MMM-SunRiseSet/pix/phases.png";
-			pic.appendChild(img);
-			wrapper.appendChild(pic);
-		} else {			
-			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
-			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; // 
-	//		console.log(img.src);
-			pic.appendChild(img);
-			wrapper.appendChild(pic);
-		}
+       
 		
 		 ////////////////// ELSE - Only the world map image //////////////
 		
@@ -173,12 +183,40 @@ Module.register("MMM-SunRiseSet", {
 		var pic = document.createElement("div");
         var img = document.createElement("img");		
         img.classList.add("img");
-		var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
-		img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; // 
-		pic.appendChild(img);
-		wrapper.appendChild(pic);
+		if (this.config.image == "static"){
+			img.src = "modules/MMM-SunRiseSet/pix/phases.png";
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+		} else if (this.config.image == "map") {			
+			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; // 
+	//		console.log(img.src);
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+		} else {
+			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
+		if (this.config.dayOrNight == "day") {
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=rise&seed=" + getTimeStamp; // 
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+			
+		} else {
+			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=set&seed=" + getTimeStamp;
+			pic.appendChild(img);
+			wrapper.appendChild(pic);
+
+		}
+//			// picture
+//			var img = document.createElement("img");
+//			img.classList.add("photo");
+//			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=set&seed=" + getTimeStamp;
+//			wrapper.appendChild(img); 
+			
+		}
 		
-		} // closes else
+		
+		} // closes top if/else statement
 		
 		
         return wrapper;
