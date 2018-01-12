@@ -221,6 +221,18 @@ Module.register("MMM-SunRiseSet", {
 		
         return wrapper;
     },
+	
+	
+/////  Add this function to the modules you want to control with voice //////
+
+    notificationReceived: function(notification, payload) {
+        if (notification === 'HIDE_SUNRISE') {
+            this.hide(1000);
+        }  else if (notification === 'SHOW_SUNRISE') {
+            this.show(1000);
+        }
+            
+    },
 
 
     processSunRiseSet: function(data) {
