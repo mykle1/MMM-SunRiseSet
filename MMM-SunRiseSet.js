@@ -99,16 +99,17 @@ Module.register("MMM-SunRiseSet", {
 
         // sunrise set to local time using moment
         var sunrise = document.createElement("div");
-        sunrise.classList.add("xsmall", "bright", "sunrise");
-        sunrise.innerHTML = "Sunrise is at " + moment(SunRiseSet.sunrise).local().format("h:mm a");
+        sunrise.classList.add("small", "bright", "sunrise");
+        sunrise.innerHTML = "Sunrise is at " + moment(SunRiseSet.sunrise).local().format("h:mm a") + " &nbsp &nbsp "
+							+ "Sunset is at " + moment(SunRiseSet.sunset).local().format("h:mm a");
         wrapper.appendChild(sunrise);
 
 
-        // sunset set to local time using moment
-        var sunset = document.createElement("div");
-        sunset.classList.add("xsmall", "bright", "sunset");
-        sunset.innerHTML = "Sunset is at " + moment(SunRiseSet.sunset).local().format("h:mm a");
-        wrapper.appendChild(sunset);
+    //    // sunset set to local time using moment
+    //    var sunset = document.createElement("div");
+    //    sunset.classList.add("xsmall", "bright", "sunset");
+   //     sunset.innerHTML = "Sunset is at " + moment(SunRiseSet.sunset).local().format("h:mm a");
+   //     wrapper.appendChild(sunset);
 
 
         // solar noon set to local time using moment
@@ -207,12 +208,7 @@ Module.register("MMM-SunRiseSet", {
 			wrapper.appendChild(pic);
 
 		}
-//			// picture
-//			var img = document.createElement("img");
-//			img.classList.add("photo");
-//			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=set&seed=" + getTimeStamp;
-//			wrapper.appendChild(img); 
-			
+
 		}
 		
 		
