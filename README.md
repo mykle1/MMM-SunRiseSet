@@ -51,12 +51,12 @@ css file also used to display as little or as much data as you like.
 		config: {
 			lat: "41.111111",      // Your latitude (for the data)
 			lng: "-75.111111",     // Your longitude (for the data)
-			image: "map",        // "world" (animation), "map" (animation), "static" (graph)
-			imageOnly: "yes",       // no = all data, yes = only animated world or map
+			image: "map",          // "world" (animation), "map" (animation), "static" (graph)
+			imageOnly: "no",       // no = all data, yes = only animated world or map
 			dayOrNight: "night",   // "night" approaching, "day" approaching (imageOnly: must be "yes", image: must be "world") 
 			useHeader: false,      // true if you want a header
 			header: "Header",      // useHeader must be true
-			maxWidth: "600px",
+			maxWidth: "515px",
         }
     },
 	
