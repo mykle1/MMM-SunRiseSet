@@ -56,7 +56,7 @@ css file also used to display as little or as much data as you like.
 			dayOrNight: "night",   // "night" approaching, "day" approaching (imageOnly: must be "yes", image: must be "world") 
 			useHeader: false,      // true if you want a header
 			header: "Header",      // useHeader must be true
-			maxWidth: "400px",
+			maxWidth: "600px",
         }
     },
 	
