@@ -13,7 +13,8 @@ Module.register("MMM-SunRiseSet", {
 		image: "world",                           // world, map or static (for graph)
 		imageOnly: "no",                          // no = all data, yes = only animated image choice
 		dayOrNight: "night", // "night" approaching, "day" approaching (imageOnly must be "yes")
-        useHeader: false,                         // true if you want a header      
+    timeFormat: "",
+        useHeader: false,                         // true if you want a header
         header: "On to the heart of the sunrise", // Any text you want. useHeader must be true
         maxWidth: "300px",
         animationSpeed: 3000,
@@ -60,48 +61,55 @@ Module.register("MMM-SunRiseSet", {
             header.innerHTML = this.config.header;
             wrapper.appendChild(header);
         }
-		
+
 		///////////// First - IF you want all the data and the image ///////////////////
-		
+
 		if (this.config.imageOnly != "yes") {
 
         var SunRiseSet = this.SunRiseSet;
         var lat = this.config.lat; // latitude
         var lng = this.config.lng; // longitude
 
+        // if(!this.once)
+				// 	{
+				// 			this.once=true;
+				// 			MM.getModules().enumerate((module) => {
+				// 				Log.log("module="+module.name);
+				// 			})
+				// 	}
 
-        var top = document.createElement("div");
-        top.classList.add("list-row");
-		
-		
+//        var top = document.createElement("div");
+//        top.classList.add("list-row");
+
+
 		 // choice of image // timestamp in url forces DOM to update @Sean & @ Strawberry
         var pic = document.createElement("div");
-        var img = document.createElement("img");		
+        var img = document.createElement("img");
         img.classList.add("img");
 		if (this.config.image == "static"){
 			img.src = "modules/MMM-SunRiseSet/pix/phases.png";
 			pic.appendChild(img);
 			wrapper.appendChild(pic);
-		} else if (this.config.image == "map") {			
+		} else if (this.config.image == "map") {
 			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
-			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; // 
-			console.log(img.src);
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; //
+//			console.log(img.src);
 			pic.appendChild(img);
 			wrapper.appendChild(pic);
 		} else {
 			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
-			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=rise&seed=" + getTimeStamp; // 
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=rise&seed=" + getTimeStamp; //
 			pic.appendChild(img);
 			wrapper.appendChild(pic);
-			
+
 		}
 
 
         // sunrise set to local time using moment
         var sunrise = document.createElement("div");
         sunrise.classList.add("small", "bright", "sunrise");
-        sunrise.innerHTML = "Sunrise is at " + moment(SunRiseSet.sunrise).local().format("h:mm a") + " &nbsp &nbsp "
-							+ "Sunset is at " + moment(SunRiseSet.sunset).local().format("h:mm a");
+        sunrise.innerHTML = "Sunrise is at " + moment(SunRiseSet.sunrise).local().format(this.config.timeFormat) + " &nbsp &nbsp "
+							+ "Sunset is at " + moment(SunRiseSet.sunset).local().format(this.config.timeFormat); // "h:mm a"
         wrapper.appendChild(sunrise);
 
 
@@ -115,7 +123,7 @@ Module.register("MMM-SunRiseSet", {
         // solar noon set to local time using moment
         var solar_noon = document.createElement("div");
         solar_noon.classList.add("xsmall", "bright", "solar_noon");
-        solar_noon.innerHTML = "Solar noon is at " + moment(SunRiseSet.solar_noon).local().format("h:mm a");
+        solar_noon.innerHTML = "Solar noon is at " + moment(SunRiseSet.solar_noon).local().format(this.config.timeFormat);
         wrapper.appendChild(solar_noon);
 
 
@@ -133,74 +141,74 @@ Module.register("MMM-SunRiseSet", {
         // civil twilight begins set to local time using moment
         var civil_twilight_begin = document.createElement("div");
         civil_twilight_begin.classList.add("xsmall", "bright", "civil_twilight_begin");
-        civil_twilight_begin.innerHTML = "Civil twilight begins at " + moment(SunRiseSet.civil_twilight_begin).local().format("h:mm a");
+        civil_twilight_begin.innerHTML = "Civil twilight begins at " + moment(SunRiseSet.civil_twilight_begin).local().format(this.config.timeFormat);
         wrapper.appendChild(civil_twilight_begin);
 
 
         // civil twilight ends set to local time using moment
         var civil_twilight_end = document.createElement("div");
         civil_twilight_end.classList.add("xsmall", "bright", "civil_twilight_end");
-        civil_twilight_end.innerHTML = "Civil twilight ends at " + moment(SunRiseSet.civil_twilight_end).local().format("h:mm a");
+        civil_twilight_end.innerHTML = "Civil twilight ends at " + moment(SunRiseSet.civil_twilight_end).local().format(this.config.timeFormat);
         wrapper.appendChild(civil_twilight_end);
 
 
         // nautical_twilight_begin set to local time using moment
         var nautical_twilight_begin = document.createElement("div");
         nautical_twilight_begin.classList.add("xsmall", "bright", "nautical_twilight_begin");
-        nautical_twilight_begin.innerHTML = "Nautical twilight begins at " + moment(SunRiseSet.nautical_twilight_begin).local().format("h:mm a");
+        nautical_twilight_begin.innerHTML = "Nautical twilight begins at " + moment(SunRiseSet.nautical_twilight_begin).local().format(this.config.timeFormat);
         wrapper.appendChild(nautical_twilight_begin);
 
 
         // nautical_twilight_end set to local time using moment
         var nautical_twilight_end = document.createElement("div");
         nautical_twilight_end.classList.add("xsmall", "bright", "nautical_twilight_end");
-        nautical_twilight_end.innerHTML = "Nautical twilight ends at " + moment(SunRiseSet.nautical_twilight_end).local().format("h:mm a");
+        nautical_twilight_end.innerHTML = "Nautical twilight ends at " + moment(SunRiseSet.nautical_twilight_end).local().format(this.config.timeFormat);
         wrapper.appendChild(nautical_twilight_end);
 
 
         // astronomical_twilight_begin set to local time using moment
         var astronomical_twilight_begin = document.createElement("div");
         astronomical_twilight_begin.classList.add("xsmall", "bright", "astronomical_twilight_begin");
-        astronomical_twilight_begin.innerHTML = "Astronomical twilight begins at " + moment(SunRiseSet.astronomical_twilight_begin).local().format("h:mm a");
+        astronomical_twilight_begin.innerHTML = "Astronomical twilight begins at " + moment(SunRiseSet.astronomical_twilight_begin).local().format(this.config.timeFormat);
         wrapper.appendChild(astronomical_twilight_begin);
 
 
         // astronomical_twilight_end set to local time using moment
         var astronomical_twilight_end = document.createElement("div");
         astronomical_twilight_end.classList.add("xsmall", "bright", "astronomical_twilight_end");
-        astronomical_twilight_end.innerHTML = "Astronomical twilight ends at " + moment(SunRiseSet.astronomical_twilight_end).local().format("h:mm a");
+        astronomical_twilight_end.innerHTML = "Astronomical twilight ends at " + moment(SunRiseSet.astronomical_twilight_end).local().format(this.config.timeFormat);
         wrapper.appendChild(astronomical_twilight_end);
 
 
-       
-		
+
+
 		 ////////////////// ELSE - Only the world map image //////////////
-		
+
 		} else {
-			
-		var top = document.createElement("div");
-        top.classList.add("list-row");
-		
+
+//		var top = document.createElement("div");
+//        top.classList.add("list-row");
+
 		var pic = document.createElement("div");
-        var img = document.createElement("img");		
+        var img = document.createElement("img");
         img.classList.add("img");
 		if (this.config.image == "static"){
 			img.src = "modules/MMM-SunRiseSet/pix/phases.png";
 			pic.appendChild(img);
 			wrapper.appendChild(pic);
-		} else if (this.config.image == "map") {			
+		} else if (this.config.image == "map") {
 			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
-			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; // 
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?date=today&seed=" + getTimeStamp; //
 	//		console.log(img.src);
 			pic.appendChild(img);
 			wrapper.appendChild(pic);
 		} else {
 			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
 		if (this.config.dayOrNight == "day") {
-			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=rise&seed=" + getTimeStamp; // 
+			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=rise&seed=" + getTimeStamp; //
 			pic.appendChild(img);
 			wrapper.appendChild(pic);
-			
+
 		} else {
 			var getTimeStamp = new Date().getTime(); // @Sean & @ Strawberry
 			img.src = "http://api.usno.navy.mil/imagery/earth.png?view=set&seed=" + getTimeStamp;
@@ -210,15 +218,15 @@ Module.register("MMM-SunRiseSet", {
 		}
 
 		}
-		
-		
+
+
 		} // closes top if/else statement
-		
-		
+
+
         return wrapper;
     },
-	
-	
+
+
 /////  Add this function to the modules you want to control with voice //////
 
     notificationReceived: function(notification, payload) {
@@ -227,7 +235,7 @@ Module.register("MMM-SunRiseSet", {
         }  else if (notification === 'SHOW_SUNRISE') {
             this.show(1000);
         }
-            
+
     },
 
 
